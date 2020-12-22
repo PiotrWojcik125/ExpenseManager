@@ -15,32 +15,30 @@ class Income {
     /**
      * Hibernate needs it
      **/
-    public Income (){
-    }
-    Integer getId(){
+    Income(){}
+
+    public Integer getId(){
         return id;
     }
-    Double getValue() {
+
+    public Double getValue() {
         return value;
     }
 
-    void setValue(final Double value) {
+    public void setValue(final Double value) {
         this.value = value;
     }
 
-    String getDescription() {
+    public String getDescription() {
         return description;
     }
 
-    void setDescription(final String description) {
+    public void setDescription(final String description) {
         this.description = description;
     }
 
-    LocalDateTime getDate() {
-        return date;
-    }
-
-    void setDate(final LocalDateTime date) {
-        this.date = date;
+    @PrePersist
+    void created(){
+        date=LocalDateTime.now();
     }
 }
