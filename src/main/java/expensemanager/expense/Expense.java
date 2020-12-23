@@ -16,30 +16,29 @@ class Expense {
     **/
     public Expense(){
     }
-    Integer getId(){
+    public Integer getId(){
         return id;
     }
-    Double getValue() {
+    public Double getValue() {
         return value;
     }
 
-    void setValue(final Double value) {
+    public void setValue(final Double value) {
         this.value = value;
     }
 
-    String getDescription() {
+    public String getDescription() {
         return description;
     }
 
-    void setDescription(final String description) {
+    public void setDescription(final String description) {
         this.description = description;
     }
-
-    LocalDateTime getDate() {
+    public LocalDateTime getDate(){
         return date;
     }
-
-    void setDate(final LocalDateTime date) {
-        this.date = date;
+    @PrePersist
+    void created(){
+        date=LocalDateTime.now();
     }
 }

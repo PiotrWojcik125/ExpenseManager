@@ -15,7 +15,7 @@ class Income {
     /**
      * Hibernate needs it
      **/
-    Income(){}
+    public Income(){}
 
     public Integer getId(){
         return id;
@@ -37,6 +37,9 @@ class Income {
         this.description = description;
     }
 
+    public LocalDateTime getDate(){
+        return date;
+    }
     @PrePersist
     void created(){
         date=LocalDateTime.now();
